@@ -44,6 +44,8 @@ class Users extends CI_Controller
 
 	public function listAll()
 	{
-		print_r(json_encode(array(array('name'=>'Kaio Santos', 'city'=>'abc'), array('name'=>'Bruna Santos', 'city'=>'abc'), array('name'=>'Julia Santos', 'city'=>'abc') )));
+		$users = $this->user_model->ListAll();
+		print_r(json_encode($users));
+		// print_r(json_encode(array(array('name'=>'Kaio Santos', 'city'=>'abc'), array('name'=>'Bruna Santos', 'city'=>'abc'), array('name'=>'Julia Santos', 'city'=>'abc') )));
 	}
 }

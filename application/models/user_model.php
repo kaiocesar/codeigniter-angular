@@ -22,5 +22,11 @@ class User_model extends CI_Model
 		$insert_id = $this->db->insert_id();
 		return $insert_id;
 	}
+
+	public function ListAll()
+	{
+		$users = $this->db->get($this->tablename)->result();
+		return $users;
+	}
 	
 }

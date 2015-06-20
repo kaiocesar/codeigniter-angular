@@ -22,14 +22,14 @@
  }
 
 
-function TableViewController($scope) {
-
- 	$scope.rows = [
- 		{ name: 'Kaio Santos', city: 'ABC'},
- 		{ name: 'Bruna Santos', city: 'ABC'},
- 		{ name: 'Julia Santos', city: 'ABC'}
- 	];
-
+function TableViewController($scope, $http) {
+	$http({
+		method: 'POST',
+		url: '/modelo/index.php/users/listAll',
+		headers: {"Content-Type":"application/json"},
+	}).success(function(data){
+		$scope.rows = data;
+	});
 }
 
 App.controller('TableViewController', TableViewController);

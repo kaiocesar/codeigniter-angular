@@ -47,8 +47,8 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="row in rows">
-							<td>{{ row.name}}</td>
-							<td>{{ row.city }}</td>
+							<td>{{ row.NAME}}</td>
+							<td>{{ row.CITY }}</td>
 						</tr>
 					</tbody>
 				</table>
