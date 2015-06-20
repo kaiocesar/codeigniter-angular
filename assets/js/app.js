@@ -7,8 +7,7 @@
  	$scope.city = undefined;
  	$scope.message = undefined;
 
- 	$scope.submitForm = function() {
- 		console.log("posting data ...");
+ 	$scope.submitForm = function() { 		
  		$http({
  			method: 'POST',
  			url: '/modelo/index.php/users/add',
@@ -17,11 +16,21 @@
  			},
  			data: JSON.stringify({name: $scope.name, city: $scope.city})
  		}).success(function(data){ 			
- 			alertify.alert('Status message', data.status);
- 			//$scope.message = data.status;
+ 			alertify.notify(data.message, data.status, 5, function() { console.log(data.message); });
  		});
  	}
  }
 
 
+function TableViewController($scope) {
+
+ 	$scope.rows = [
+ 		{ name: 'Kaio Santos', city: 'ABC'},
+ 		{ name: 'Bruna Santos', city: 'ABC'},
+ 		{ name: 'Julia Santos', city: 'ABC'}
+ 	];
+
+}
+
+App.controller('TableViewController', TableViewController);
 App.controller('FormController', FormController);

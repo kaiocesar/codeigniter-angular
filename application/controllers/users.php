@@ -22,9 +22,28 @@ class Users extends CI_Controller
 		$name = $request->name;
 		$city = $request->city;
 		$id = $this->user_model->AddUser($name, $city);
-		$status = ($id) ? "success": "failure";
 		
-		print_r(json_encode(array('status'=>$status)));		
+		$return = array();
+
+		if ($id)
+		{
+			$return['status'] = 'success';
+			$return['message'] = 'Item successfully added.';
+		}
+		else
+		{
+			$return['status'] = 'error';
+			$return['message'] = 'Error adding the item, try again.';
+		}
+
 		
+		print_r(json_encode($return));		
+		
+	}
+
+
+	public function listAll()
+	{
+		print_r(json_encode(array(array('name'=>'Kaio Santos', 'city'=>'abc'), array('name'=>'Bruna Santos', 'city'=>'abc'), array('name'=>'Julia Santos', 'city'=>'abc') )));
 	}
 }
