@@ -25,7 +25,7 @@ class User_model extends CI_Model
 
 	public function ListAll()
 	{
-		$users = $this->db->get($this->tablename)->result();
+		$users = $this->db->get($this->tablename)->result();	
 		return $users;
 	}
 	
