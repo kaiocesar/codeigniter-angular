@@ -19,12 +19,11 @@
 	 				"Content-Type" :  "application/json"
 	 			},
 	 			data: JSON.stringify({name: $scope.name, city: $scope.city})
-	 		}).success(function(data){	 			
-	 			
-	 			// $scope.rows.push([{name: $scope.name, city: $scope.city}]);	 	 			
+	 		}).success(function(data){	 				 			
 	 			var scope = angular.element(document.getElementById("table")).scope();
 	 			scope.rows.push({name: $scope.name, city: $scope.city});
 	 			$scope.rows = scope;
+	 			
 	 			alertify.notify(data.message, data.status, 5, function() { console.log(data.message); });
 	 		});
 	 	}
