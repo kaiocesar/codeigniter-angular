@@ -3,6 +3,7 @@
 (function(){
 	var HC = {};
  	var App = angular.module('myApp', ['ui.bootstrap']);
+ 	var $scope;
 
 
 	HC.FormController = function($scope, $http) {
@@ -18,8 +19,12 @@
 	 				"Content-Type" :  "application/json"
 	 			},
 	 			data: JSON.stringify({name: $scope.name, city: $scope.city})
-	 		}).success(function(data, $scope){	 			
-	 			// $scope.rows.push([{name: $scope.name, city: $scope.city}]);
+	 		}).success(function(data){	 			
+	 			
+	 			// $scope.rows.push([{name: $scope.name, city: $scope.city}]);	 	 			
+	 			var scope = angular.element(document.getElementById("table")).scope();
+	 			scope.rows.push({name: $scope.name, city: $scope.city});
+	 			$scope.rows = scope;
 	 			alertify.notify(data.message, data.status, 5, function() { console.log(data.message); });
 	 		});
 	 	}

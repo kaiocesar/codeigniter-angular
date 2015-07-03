@@ -38,7 +38,7 @@
 			<br/>
 
 			<div class="table-responsive" ng-controller="TableViewController">
-				<table tasty-table class="table">
+				<table tasty-table class="table" id="table">
 					<thead>
 						<tr>
 							<th>Name</th>
@@ -47,8 +47,8 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="row in rows">
-							<td>{{ row.NAME}}</td>
-							<td>{{ row.CITY }}</td>
+							<td>{{ row.name}}</td>
+							<td>{{ row.city }}</td>
 						</tr>
 					</tbody>
 				</table>
