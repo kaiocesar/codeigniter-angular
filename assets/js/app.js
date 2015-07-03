@@ -5,7 +5,6 @@
  	var App = angular.module('myApp', ['ui.bootstrap']);
  	var $scope;
 
-
 	HC.FormController = function($scope, $http) {
 	 	$scope.name = undefined;
 	 	$scope.city = undefined;
@@ -23,7 +22,7 @@
 	 			var scope = angular.element(document.getElementById("table")).scope();
 	 			scope.rows.push({name: $scope.name, city: $scope.city});
 	 			$scope.rows = scope;
-	 			
+
 	 			alertify.notify(data.message, data.status, 5, function() { console.log(data.message); });
 	 		});
 	 	}
